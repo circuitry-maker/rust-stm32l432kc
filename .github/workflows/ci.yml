@@ -14,7 +14,7 @@ jobs:
         run: rustup target add thumbv7em-none-eabihf
 
       - name: Build
-        run: cargo build --verbose
+        run: cargo build --target thumbv7em-none-eabihf --release
 
       - name: Run tests
         run: cargo test --verbose
