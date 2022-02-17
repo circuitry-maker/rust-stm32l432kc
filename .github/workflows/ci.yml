@@ -6,24 +6,28 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mcu:
+          - stm32l432
+        rust:
+          - stable
+        include:
+          - rust: nightly
+            mcu: stm32l432
+            experimental: true
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: stable
-          components: cargo-binutils
+          toolchain: ${{ matrix.rust }}
           target: thumbv7em-none-eabihf
           override: true
-      - name: build
-        uses: actions-rs/cargo@v1
+      - uses: actions-rs/cargo@v1
         with:
-          command: build
-          args: --verbose --release --target thumbv7em-none-eabihf
-      - name: test
-        uses: actions-rs/cargo@v1
-        with:
-          command: test
-          args: --lib --target thumbv7em-none-eabihf
+          command: check
+          args: --features=${{ matrix.mcu }}

@@ -18,7 +18,7 @@ clean:
 	rm -f *.hex
 
 build:
-	rustup default nightly
+	rustup default stable
 	rustup target add thumbv6m-none-eabi thumbv7m-none-eabi thumbv7em-none-eabi thumbv7em-none-eabihf
 	cargo build --target $(TARGET) --$(LEVEL) && arm-none-eabi-readelf -h $(TARGET_FOLDER)/$(TARGET)/$(LEVEL)/$(BINARY)
 
