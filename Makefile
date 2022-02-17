@@ -22,8 +22,9 @@ build:
 	rustup target add thumbv6m-none-eabi thumbv7m-none-eabi thumbv7em-none-eabi thumbv7em-none-eabihf
 	cargo build --target $(TARGET) --$(LEVEL) && arm-none-eabi-readelf -h $(TARGET_FOLDER)/$(TARGET)/$(LEVEL)/$(BINARY)
 
-flash:
-	cp $(TARGET_FOLDER)/$(TARGET)/$(LEVEL)/$(BINARY) $(STM_PATH)
+flash: build
+	arm-none-eabi-objcopy -O binary $(TARGET_FOLDER)/$(TARGET)/$(LEVEL)/$(BINARY) $(BINARY).bin
+	cp $(BINARY).bin $(STM_PATH)
 
 doc:
 	cargo doc --open

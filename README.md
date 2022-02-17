@@ -57,3 +57,8 @@ $ screen /dev/ttyACM1 9600
 ```
 
 ![](docs/nucleo_l432kc.png)
+
+
+Documentation:
+- [The Embedded Rust Book](https://doc.rust-lang.org/stable/embedded-book/)
+- [stm32l4xx-hal](https://github.com/stm32-rs/stm32l4xx-hal)

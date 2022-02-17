@@ -1,8 +1,9 @@
+#![allow(non_camel_case_types)]
 #![no_std]
 #![no_main]
 
 // Halt when the program panics.
-extern crate panic_halt;
+extern crate panic_halt as _;
 
 // Includes.
 use cortex_m::peripheral::syst::SystClkSource;
@@ -28,9 +29,9 @@ fn main() -> ! {
 
     loop {
         while !syst.has_wrapped() {};
-        ld4.set_high();
+        let _ = ld4.set_high();
 
         while !syst.has_wrapped() {};
-        ld4.set_low();
+        let _ = ld4.set_low();
     }
 }
