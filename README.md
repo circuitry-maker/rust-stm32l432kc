@@ -7,6 +7,9 @@ STM32L432KC board examples in rust
 ```console
 apt-get install binutils-arm-none-eabi
 rustup target add thumbv7em-none-eabihf
+rustup component add clippy
+cargo install cargo-binutils
+rustup component add llvm-tools-preview
 ```
 
 *build*
@@ -20,7 +23,7 @@ $ cargo build --target thumbv7em-none-eabihf --release
 ```
 $ arm-none-eabi-readelf -h <output>
 $ arm-none-eabi-readelf -A <output>
-$ cargo objdump --bin <output> -- -d -no-show-raw-insn
+$ cargo objdump --release -- --disassemble --no-show-raw-insn
 $ arm-none-eabi-size -tA <output>
 ```
 
