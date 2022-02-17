@@ -3,7 +3,7 @@
 #![no_main]
 
 // Halt when the program panics.
-extern crate panic_halt as _;
+extern crate panic_halt;
 
 // Includes.
 use cortex_m::peripheral::syst::SystClkSource;
