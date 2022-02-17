@@ -14,6 +14,7 @@ jobs:
         with:
           profile: minimal
           toolchain: stable
+          components: cargo-binutils
           target: thumbv7em-none-eabihf
           override: true
       - name: build
