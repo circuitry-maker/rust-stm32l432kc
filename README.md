@@ -5,6 +5,7 @@ STM32L432KC board examples in rust
 
 *prerequisites*
 ```console
+apt-get install binutils-arm-none-eabi
 rustup target add thumbv7em-none-eabihf
 ```
 

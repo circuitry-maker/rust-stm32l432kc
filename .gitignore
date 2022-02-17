@@ -11,3 +11,7 @@ Cargo.lock
 
 # CLion
 .idea/
+
+# Binaries
+*.bin
+*.hex

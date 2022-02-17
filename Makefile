@@ -1,4 +1,4 @@
-BINARY=robot
+BINARY=stm
 
 TARGET=thumbv7em-none-eabihf
 TARGET_FOLDER=target
@@ -14,14 +14,19 @@ SE=arm-none-eabi-size
 
 clean:
 	cargo clean && rm -f $(TARGET_FOLDER)
+	rm -f *.bin
+	rm -f *.hex
 
 build:
 	rustup default nightly
 	rustup target add thumbv6m-none-eabi thumbv7m-none-eabi thumbv7em-none-eabi thumbv7em-none-eabihf
-	cargo build --$(LEVEL) && arm-none-eabi-readelf -h ../$(TARGET_FOLDER)/$(TARGET)/$(LEVEL)/$(BINARY)
+	cargo build --target $(TARGET) --$(LEVEL) && arm-none-eabi-readelf -h $(TARGET_FOLDER)/$(TARGET)/$(LEVEL)/$(BINARY)
 
 flash:
-	cp ../$(TARGET_FOLDER)/$()/$()/$(BINARY) $(STM_PATH)
+	cp $(TARGET_FOLDER)/$(TARGET)/$(LEVEL)/$(BINARY) $(STM_PATH)
 
 doc:
 	cargo doc --open
+
+lint:
+	cargo clippy
