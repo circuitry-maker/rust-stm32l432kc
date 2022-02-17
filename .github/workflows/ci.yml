@@ -19,7 +19,6 @@ jobs:
       - name: build
         uses: actions-rs/cargo@v1
         with:
-          use-cross: true
           command: build
           args: --verbose --release --target thumbv7em-none-eabihf
       - name: test
