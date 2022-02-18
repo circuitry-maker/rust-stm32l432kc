@@ -6,12 +6,13 @@ readme = "README.md"
 authors = ["Luca Zulian <lucagiuggia@gmail.com>"]
 
 [dependencies]
-cortex-m = "0.5.8"
+cortex-m = "0.7"
 cortex-m-rt = "0.6.5"
 panic-halt = "0.2.0"
 panic-semihosting = "0.5.0"
 cortex-m-semihosting = "0.3.5"
 stm32l4xx-hal = { version = "0.6.0", features = ["rt", "stm32l4x2"] }
+nb = "0.1.1"
 
 [[bin]]
 name = "stm"

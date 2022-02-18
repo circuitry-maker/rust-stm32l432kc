@@ -10,7 +10,7 @@ use cortex_m::peripheral::syst::SystClkSource;
 use cortex_m_rt::entry;
 use stm32l4xx_hal as hal;
 use hal::prelude::*;
-use cortex_m_semihosting::{hprintln};
+// use cortex_m_semihosting::{hprintln};
 
 #[entry]
 fn main() -> ! {
@@ -31,8 +31,8 @@ fn main() -> ! {
     loop {
         while !syst.has_wrapped() {};
         let _ = ld4.set_high();
-        
-        hprintln!("Hello, world!").unwrap();
+
+        // hprintln!("Hello, world!").unwrap();
 
         while !syst.has_wrapped() {};
         let _ = ld4.set_low();

@@ -3,8 +3,7 @@ BINARY=stm
 TARGET=thumbv7em-none-eabihf
 TARGET_FOLDER=target
 LEVEL=release
-STM_PATH=/media/luca/NODE_L432KC
-# or STM_PATH=/run/media/luca/NODE_L432KC
+STM_PATH=/run/media/luca/NODE_L432KC
 
 EL=arm-none-eabi-readelf
 CP=arm-none-eabi-objcopy
@@ -32,3 +31,9 @@ doc:
 
 lint:
 	cargo clippy
+
+gdb:
+	gdb -q -x openocd.gdb $(TARGET_FOLDER)/$(TARGET)/$(LEVEL)/$(BINARY)
+
+openocd:
+	openocd -f interface/stlink-v2-1.cfg -f nucleo_l432kc.cfg

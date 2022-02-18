@@ -61,6 +61,10 @@ in another console:
 ``` console
 $ gdb-multiarch -q -x openocd.gdb <output>
 ```
+or
+``` console
+$ gdb -q -x openocd.gdb <output>
+```
 
 *read from serial interface via USB*
 ``` console
