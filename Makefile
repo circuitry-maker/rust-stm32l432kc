@@ -3,7 +3,8 @@ BINARY=stm
 TARGET=thumbv7em-none-eabihf
 TARGET_FOLDER=target
 LEVEL=release
-STM_PATH=/run/media/luca/NODE_L432KC
+STM_PATH=/media/luca/NODE_L432KC
+# or STM_PATH=/run/media/luca/NODE_L432KC
 
 EL=arm-none-eabi-readelf
 CP=arm-none-eabi-objcopy

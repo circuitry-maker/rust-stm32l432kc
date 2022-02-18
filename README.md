@@ -6,10 +6,22 @@ STM32L432KC board examples in rust
 *prerequisites*
 ```console
 apt-get install binutils-arm-none-eabi
+apt-get install openocd
+apt-get install gdb-multiarch
 rustup target add thumbv7em-none-eabihf
 rustup component add clippy
 cargo install cargo-binutils
 rustup component add llvm-tools-preview
+```
+
+Udev rules for Black Magic Probe on an STM32
+```
+# UDEV Rules for Black Magic Probe STM32
+# copy this file to /etc/udev/rules.d/50-usb-stlink.rules
+
+# reload rules:
+#   $ sudo udevadm control --reload-rules && sudo udevadm trigger
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="6018", GROUP="plugdev", MODE="0666"
 ```
 
 *build*
@@ -47,7 +59,7 @@ $ openocd -f nucleo_l432kc.cfg
 
 in another console:
 ``` console
-$ arm-none-eabi-gdb -q -x openocd.gdb <output>
+$ gdb-multiarch -q -x openocd.gdb <output>
 ```
 
 *read from serial interface via USB*
