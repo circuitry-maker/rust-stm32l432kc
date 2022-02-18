@@ -13,7 +13,6 @@ rustup component add clippy
 cargo install cargo-binutils
 rustup component add llvm-tools-preview
 ```
-
 Udev rules for Black Magic Probe on an STM32
 ```
 # UDEV Rules for Black Magic Probe STM32
@@ -22,6 +21,12 @@ Udev rules for Black Magic Probe on an STM32
 # reload rules:
 #   $ sudo udevadm control --reload-rules && sudo udevadm trigger
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="6018", GROUP="plugdev", MODE="0666"
+```
+
+If you have different programmer you should change idProduct and idVendor. To find out your numbers first plug your USB device and then type lsusb:
+```console
+~$ lsusb
+Bus 001 Device 026: ID 0483:374b STMicroelectronics ST-LINK/V2.1
 ```
 
 *build*
