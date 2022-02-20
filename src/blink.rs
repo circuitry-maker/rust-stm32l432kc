@@ -22,7 +22,6 @@ fn main() -> ! {
     syst.set_reload( 4_000_000 );
     syst.enable_counter();
 
-    // Set up GPIO pin E8 (LED #4)
     let p = stm32l4xx_hal::pac::Peripherals::take().unwrap();
     let mut rcc = p.RCC.constrain();
     let mut gpioe = p.GPIOB.split( &mut rcc.ahb2 );

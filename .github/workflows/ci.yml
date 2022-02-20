@@ -1,9 +1,17 @@
-on: [ push, pull_request ]
-
 name: ci
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - "*.*.*"
+  schedule:
+    - cron: 0 0 * * 0
 
 env:
   CARGO_TERM_COLOR: always
+  RUSTFLAGS: '--deny warnings'
 
 jobs:
   ci:
