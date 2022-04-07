@@ -11,7 +11,7 @@ cortex-m-rt = "0.6.5"
 panic-halt = "0.2.0"
 panic-semihosting = "0.6.0"
 cortex-m-semihosting = "0.5.0"
-stm32l4xx-hal = { version = "0.6.0", features = ["rt", "stm32l4x2"] }
+stm32l4xx-hal = { version = "0.7.0", features = ["rt", "stm32l4x2"] }
 nb = "1.0.0"
 
 [[bin]]
