@@ -6,17 +6,17 @@ readme = "README.md"
 authors = ["Luca Zulian <lucagiuggia@gmail.com>"]
 
 [dependencies]
-cortex-m = "0.7"
-cortex-m-rt = "0.6.5"
+cortex-m = "0.7.5"
+cortex-m-rt = "0.7.1"
 panic-halt = "0.2.0"
 panic-semihosting = "0.6.0"
 cortex-m-semihosting = "0.5.0"
-stm32l4xx-hal = { version = "0.6.0", features = ["rt", "stm32l4x2"] }
+stm32l4xx-hal = { version = "0.7.1", features = ["rt", "stm32l432"] }
 nb = "1.0.0"
 
 [[bin]]
 name = "stm"
-path = "src/blink.rs"
+path = "examples/blink.rs"
 test = false
 bench = false
 
